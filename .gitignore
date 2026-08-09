@@ -1,0 +1,27 @@
+# Terraform
+.terraform/
+.terraform.lock.hcl
+*.tfstate
+*.tfstate.*
+*.tfplan
+crash.log
+crash.*.log
+
+# Variable files that may carry secrets.
+# terraform.tfvars IS committed (non-secret values only).
+*.auto.tfvars
+*.auto.tfvars.json
+secrets.tfvars
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Local backend config
+backend.hcl
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
+*.swp

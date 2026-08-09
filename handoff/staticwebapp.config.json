@@ -1,0 +1,10 @@
+{
+  "_comment": "STUB - to be written. Lives in the repo owner's repository, at the root of the app source. Never applied by Terraform.",
+  "_todo": [
+    "auth.identityProviders.customOpenIdConnectProviders with a tenant-scoped openIdIssuer",
+    "clientIdSettingName / clientSecretSettingName referencing the SWA app settings",
+    "routes: /* requiring the authenticated role",
+    "responseOverrides 401 -> redirect to the login path",
+    "navigationFallback exclusions"
+  ]
+}

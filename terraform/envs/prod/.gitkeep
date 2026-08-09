@@ -1,0 +1,6 @@
+Intentionally empty.
+
+Prod is built only after the demo environment has passed the negative test
+in docs/negative-test.md. Copy the demo files, change the state key to
+prod.terraform.tfstate, use a separate app registration, and set
+var.custom_domain once the CNAME resolves.

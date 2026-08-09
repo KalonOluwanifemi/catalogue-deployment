@@ -1,0 +1,9 @@
+# STUB - GitHub Actions workflow, to be written.
+#
+# Delivered to the repo owner. Belongs at .github/workflows/ in THEIR repo.
+# It is flat here on purpose: a nested .github directory in this repo would
+# look live but would not be.
+#
+# Uses Azure/static-web-apps-deploy@v1 with the deployment token.
+# app_location / api_location / output_location depend on the real repo's
+# build output and must be confirmed with the owner, not guessed.
