@@ -1,14 +1,15 @@
-# Custom domain, count-gated.
-#
-# STUB - deliberately inert until DNS is arranged.
-#
-# Enabled by setting var.custom_domain to a non-null value. Demo never sets
-# it. Prod sets it once the CNAME exists and resolves.
-#
-# For a subdomain (catalog.nmc2.info) validation is "cname-delegation": the
-# CNAME itself is the proof of ownership. There is no TXT token to generate.
-# The TXT path applies to apex domains and to pre-validation only.
-#
-# The CNAME must exist and resolve BEFORE this resource will validate. Expect
-# to need explicit ordering or a wait, same shape as other ARM eventual
-# consistency problems.
+# Inert until var.custom_domain is set. Demo leaves it null.
+resource "azurerm_static_web_app_custom_domain" "this" {
+  count = var.custom_domain == null ? 0 : 1
+
+  static_web_app_id = azurerm_static_web_app.this.id
+  domain_name       = var.custom_domain
+
+  # Subdomain: the CNAME is itself the ownership proof, no TXT token.
+  # dns-txt-token would only apply to an apex domain or pre-validation.
+  validation_type = "cname-delegation"
+
+  # The CNAME must already exist and resolve, or this hangs and then fails.
+  # If it turns out to be flaky, a time_sleep between the CNAME and this
+  # resource is the usual fix.
+}
